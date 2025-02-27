@@ -8,7 +8,7 @@ namespace Lesson13_事件
     //让委托的使用更具有安全性
     //事件 是一种特殊的变量类型
     #endregion
-
+    
     #region 知识点二 事件的使用
     //申明语法：
     //访问修饰符 event 委托类型 事件名;
@@ -45,6 +45,7 @@ namespace Lesson13_事件
             myEvent = null;
         }
 
+        //只能在内部去调用
         public void DoEvent()
         {
             if(myEvent != null)

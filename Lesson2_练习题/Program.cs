@@ -13,15 +13,35 @@ namespace Lesson2_练习题
             //先进后出
             #endregion
 
-            #region 练习二
             //写一个方法计算任意一个数的二进制数
             //使用栈结构方式存储，之后打印出来
+            #region 练习二
             Calc(10);
             Calc(2);
             Calc(3);
             Calc(8);
             Calc(16);
             #endregion
+        }
+
+        static void Calc2(unint num)
+        {
+            //9%2 = 1 4%2 = 0  2%2 = 0 1%2 = 1   1001
+            //12%2 = 0  6%2 = 0  3%2 = 1 1%2 = 1 1100
+            if(num == 0){
+                Console.WriteLine("0");
+            }
+            Stack stack = new Stack();
+            while(num!=1){
+                stack.Push(num%2);
+                num = num / 2;
+            }
+            stack.Push(num);
+            
+            foreach(object x in num){
+                Console.WriteLine("{0} ",{x});
+            }
+            
         }
 
         static void Calc(uint num)

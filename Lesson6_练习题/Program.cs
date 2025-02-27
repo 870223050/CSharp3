@@ -5,6 +5,20 @@ namespace Lesson6_练习题
     #region 练习题一 
     //用泛型实现一个单例模式基类
 
+    //单例模式应该使用静态方法
+    class SingleBase2<T>:where T: new(){
+        private static T instance = new T();
+
+        public static T Instance{
+            get{
+                return instance;
+            }
+        }
+
+       
+    }
+
+
     class SingleBase<T> where T:new()
     {
         private static T instance = new T();
