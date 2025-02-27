@@ -5,6 +5,44 @@ namespace Lesson12_练习题
     #region 练习题一
     //一家三口，妈妈做饭，爸爸妈妈和孩子都要吃饭
     //用委托模拟做饭——>开饭——>吃饭的过程
+
+    abstract class Person{
+        public abstract void Eat();
+    }
+
+    class Monther2 : Person{
+        // private Action BeiginEat; 函数容器要被外部访问
+        public Action BeginEat;
+        public override void Eat()
+        {
+            Console.WriteLine("Monther Eat");
+        }
+
+        public void DoEat(){
+            Console.WriteLine("Do Eat");
+            Console.WriteLine("Eat finished!")
+            //设置触发函数容器的节点
+            if（BeginEat != null）{
+                BeginEat();
+            }
+        }
+    }
+
+    class Father2 : Person{
+        public override void Eat()
+        {
+            Console.WriteLine("Father2 Eat");
+        }
+    }
+
+    class Son2 : Person{
+        public override void Eat()
+        {
+            Console.WriteLine("Son Eat");
+        }
+    }
+
+
     abstract class Person
     {
         public abstract void Eat();
@@ -51,10 +89,11 @@ namespace Lesson12_练习题
 
     #endregion
 
-    #region 练习题二
     //怪物死亡后，玩家要加10块钱，界面要更新数据
     //成就要累加怪物击杀数，请用委托来模拟实现这些功能
     //只用写核心逻辑表现这个过程，不用写的太复杂
+    #region 练习题二
+
 
     class Monster
     {
@@ -109,11 +148,68 @@ namespace Lesson12_练习题
     }
     #endregion
 
+    class Monster2{
+        public Action MonsterDeath;
+        public int money;
+        public string monsterName;
+        public void Dei(){
+            Console.WriteLine("Monster Die");
+            if(MonsterDeath != null){
+                MonsterDeath();
+            }
+        }
+    }
+
+    class Player2{
+        private int playerMoney;
+        public void AddMoney(Monster m){
+            playerMoney += m.money
+    }
+
+    class Panel2{
+        private string message;
+        public void ChangeMessage(Monster m){
+            this.message = m.;
+        }
+    }
+
+    class Award2{
+        private int count = 0;
+        public void AddCount(int i){
+            count += 1;
+        }
+    }
+
+
+
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("委托练习题");
+
+            Monther2 m2 = new Monther2();
+            Father2 f2 = new Father2();
+            Son2 s2 = new Son2();
+
+            m2.BeginEat += f2.Eat();
+            m2.BeginEat += s2.Eat();
+            m2.BeginEat += m2.Eat();
+            m2.DoEat();
+
+            Monster2 mo = new Monster2();
+            Player pl = new Player();
+            Panel pa = new Panel();
+            Award aw = new Award();
+
+            mo.MonsterDeath += pl.AddMoney();
+            mo.MonsterDeath += pa.ChangeMessage();
+            mo.MonsterDeath += aw.AddCount();
+            mo.MonsterDei();
+
+
+
+
 
             Mother m = new Mother();
             Father f = new Father();

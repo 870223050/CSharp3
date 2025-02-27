@@ -18,6 +18,8 @@ namespace Lesson5_练习题
             //如果是其它类型，则返回“其它类型”
             //（可以通过typeof(类型) == typeof(类型)的方式进行类型判断）
 
+            
+
             Console.WriteLine(Fun<int>());
             Console.WriteLine(Fun<string>());
             Console.WriteLine(Fun<char>());
@@ -25,6 +27,22 @@ namespace Lesson5_练习题
             Console.WriteLine(Fun<double>());
             Console.WriteLine(Fun<uint>());
             #endregion
+        }
+
+
+        static string JudgeType<T>(){
+            if(typeof(Y) == typeof(int)){
+                return string.Format("{0}返回{1}字节","整形",sizeof(int));
+            }
+            if(typeof(Y)==typeof(char)){
+                return string.Format("{0}返回{1}字节","字符型",sizeof(char));
+            }
+            if(typeof(Y) == typeof(float)){
+                return string.Format("{0}返回{1}字节","浮点型",sizeof(float));
+            }
+            return "其他类型";
+            //判断函数且有返回值类型一定要定义默认返回值
+            
         }
 
         static string Fun<T>()

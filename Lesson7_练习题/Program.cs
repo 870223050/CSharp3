@@ -20,6 +20,26 @@ namespace Lesson7_练习题
             //删除List中第五个元素
             //遍历剩余元素并打印
 
+            list<int> list1 = new list<int>();
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            list1.Add(1);
+            if(list1.Count >= 5)
+            {
+                list1.RemoveAt(4);
+            }
+            
+            for(int i = 0; i < list1.Count; i++){
+                Console.WriteLine(list1[i]);
+            }
+
             List<int> list = new List<int>();
             for (int i = 10; i > 0; i--)
             {
@@ -36,6 +56,15 @@ namespace Lesson7_练习题
             //一个Monster基类，Boss和Gablin类继承它。
             //在怪物类的构造函数中，将其存储到一个怪物List中
             //遍历列表可以让Boss和Gablin对象产生不同攻击
+
+            List<Monster> monsters = new List<Monster>;
+            monsters.Add(new Boss());
+            monsters.Addd(new Gablin());
+            foreach(Monster monster in monsters){
+                monster.Atk();
+            }
+
+
 
             Boss b = new Boss();
             Gablin g = new Gablin();

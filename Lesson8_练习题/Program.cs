@@ -13,6 +13,16 @@ namespace Lesson8_练习题
             //使用字典存储0~9的数字对应的大写文字
             //提示用户输入一个不超过三位的数，提供一个方法，返回数的大写
             //例如：306，返回叁零陆
+
+            
+            static string FindZF(int x){
+                Dictionary<int, string> d1 = new Dictionary<int, string>();
+                d1.Add(0,"零");
+                d1.Add(1,"一");
+                if(d1.ContainsKey(x)){
+                    return d1[x];
+                }
+            }
             try
             {
                 Console.WriteLine("请输入一个不超过3位的数");
@@ -26,6 +36,17 @@ namespace Lesson8_练习题
 
             #region 练习题二
             //计算每个字母出现的次数“Welcome to Unity World！”，使用字典存储，最后遍历整个字典，不区分大小写
+            
+            Dictionary<char, int> d2 = new Dictionary<char, int>();
+            string str = "qwe 1dewdewf";
+            for(int i = 0; i < str.Length; i++){
+                if(d2.ContainsKey(str[i])){
+                    int value = d2[str[i]];
+                }else{
+                    d2[str[i]] = 1;
+                }
+            }
+            
             Dictionary<char, int> dic = new Dictionary<char, int>();
             string str = "Welcome to Unity World！";
             str = str.ToLower();
